@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  name: eslint
+  name: ESLint
   runs-on: ubutntu-latest
   steps:
     - uses: actions/checkout@v3
