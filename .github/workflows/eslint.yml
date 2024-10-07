@@ -1,0 +1,23 @@
+name: eslint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jons:
+  name: eslint
+  runs-on: ubutntu-latest
+  steps:
+    - uses: actions/checkout@v3
+    - name: Intall NVM
+      run: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+    - name: Install Node.js
+      env:
+      NODE_VERSION: 18.x
+      run: NVM install $NODE_VERSION
+    - name: Install dependencies
+      run: yarn install
+    - name: Run ESLint
+      run: yarn lint
